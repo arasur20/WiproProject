@@ -1,0 +1,30 @@
+<div class="admin-shell">
+  <aside class="sidebar">
+    <div class="brand">Admin • Wellness</div>
+    <nav class="side-nav">
+      <a routerLink="/admin/employees" routerLinkActive="active">Employees</a>
+      <a routerLink="/admin/programs" routerLinkActive="active">Programs</a>
+      <a routerLink="/admin/events" routerLinkActive="active">Events</a>
+      <a routerLink="/admin/enrollments" routerLinkActive="active">Enrollments</a>
+      <a routerLink="/admin/challenges" routerLinkActive="active">Challenges</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-right">
+        <div class="admin-profile" (click)="goToProfile()">
+          <span class="admin-name">{{ adminName }}</span>
+          <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" class="avatar" />
+        </div>
+      </div>
+    </header>
+    <section class="content">
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+</div>

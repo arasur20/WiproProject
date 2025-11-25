@@ -1,0 +1,48 @@
+<div class="enrollments-container">
+  <h2 class="title">My Enrolled Programs</h2>
+
+  <!-- Loading -->
+  @if (!isLoaded) {
+  <p class="empty">Loading...</p>
+  }
+
+  <!-- Empty state -->
+  @if (isLoaded && enrollments.length === 0) {
+  <p class="empty">You haven't enrolled in any programs yet.</p>
+  }
+
+  <!-- Enrollment list -->
+  @if (isLoaded && enrollments.length > 0) {
+  <div class="enrollment-list">
+    @for (enroll of enrollments; track enroll._id) {
+    <div class="enrollment-card">
+      <h3>{{ enroll.programId.title }}</h3>
+      <p>{{ enroll.programId.description }}</p>
+
+      <div class="info-row"><strong>Progress:</strong> {{ enroll.progressPercentage }}%</div>
+
+      <div class="info-row"><strong>Category:</strong> {{ enroll.programId.category }}</div>
+
+      <div class="info-row">
+        <strong>Start:</strong> {{ enroll.programId.startDate | date : 'mediumDate' }}
+      </div>
+
+      <div class="info-row">
+        <strong>End:</strong> {{ enroll.programId.endDate | date : 'mediumDate' }}
+      </div>
+
+      @if (enroll.progressPercentage === 100) {
+      <button class="completed-btn" disabled>Completed ✓</button>
+      } @else {
+      <button class="view-btn" (click)="openProgram(enroll.programId._id)">Continue Program</button>
+      <button class="withdraw-btn" (click)="withdraw(enroll._id)">Withdraw</button>
+      }
+    </div>
+    }
+  </div>
+  }
+</div>
+
+<!-- Modal -->
+<app-modal [isOpen]="isOpen" [title]="title" [message]="message" (close)="closeModal()">
+</app-modal>

@@ -1,0 +1,99 @@
+<div class="events-container">
+  <div class="header-row">
+    <h2 class="title">Events & Webinars</h2>
+    <button class="add-btn" (click)="openAdd()">+ Add Event</button>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" placeholder="Search events..." [(ngModel)]="searchText" (input)="search()" />
+  </div>
+
+  <table class="event-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Mode</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (ev of filteredEvents; track ev._id) {
+      <tr>
+        <td>{{ ev.title }}</td>
+        <td>{{ ev.date | date : 'mediumDate' }}</td>
+        <td>{{ ev.mode }}</td>
+
+        <td>
+          <span
+            class="status-badge"
+            [class.completed]="isCompleted(ev)"
+            [class.upcoming]="isUpcoming(ev)"
+          >
+            {{ getStatus(ev) }}
+          </span>
+        </td>
+
+        <td>
+          <button class="btn edit" (click)="openEdit(ev)">Edit</button>
+          <button class="btn delete" (click)="openDeleteModal(ev)">Delete</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<!-- ========== ADD / EDIT EVENT MODAL ========== -->
+@if (modalOpen) {
+<div class="event-modal">
+  <div class="modal-box">
+    <h3>{{ isEdit ? 'Update Event' : 'Add Event' }}</h3>
+
+    <label>Title</label>
+    <input type="text" [(ngModel)]="form.title" />
+
+    <label>Description</label>
+    <textarea [(ngModel)]="form.description"></textarea>
+
+    <label>Date</label>
+    <input type="date" [(ngModel)]="form.date" />
+
+    <label>Presenter</label>
+    <input type="text" [(ngModel)]="form.presenter" />
+
+    <label>Mode</label>
+    <select [(ngModel)]="form.mode">
+      <option value="">Select</option>
+      <option value="online">Online</option>
+      <option value="offline">Offline</option>
+    </select>
+
+    @if (form.mode === 'offline') {
+    <label>Location</label>
+    <input type="text" [(ngModel)]="form.location" />
+    } @if (form.mode === 'online') {
+    <label>Meeting Link</label>
+    <input type="text" [(ngModel)]="form.meetingLink" />
+    }
+
+    <div class="modal-actions">
+      <button class="btn" (click)="closeModal()">Cancel</button>
+      <button class="btn save" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>
+}
+
+<!-- DELETE CONFIRMATION -->
+<app-confirmation-modal
+  [isOpen]="deleteModalOpen"
+  title="Delete Event?"
+  [message]="'Are you sure you want to delete ' + selectedEvent?.title + '?'"
+  (confirm)="confirmDelete()"
+  (cancel)="deleteModalOpen = false"
+>
+</app-confirmation-modal>

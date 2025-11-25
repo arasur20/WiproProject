@@ -1,0 +1,50 @@
+.profile-container {
+  padding: 20px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #17252a;
+  margin-bottom: 20px;
+}
+
+.form-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 420px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b7a78;
+  margin-top: 12px;
+  display: block;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f8fcfc;
+}
+
+.save-btn {
+  margin-top: 18px;
+  background: #2b7a78;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+}
+
+.save-btn:hover {
+  background: #226a68;
+}

@@ -1,0 +1,64 @@
+<div class="profile-container">
+  <h2>My Profile</h2>
+
+  <form (ngSubmit)="updateProfile()">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="form.name" name="name" required />
+
+    <label>Department</label>
+    <input type="text" [(ngModel)]="form.department" name="department" />
+
+    <label>Date of Birth</label>
+    <input
+      type="date"
+      [(ngModel)]="form.dob"
+      name="dob"
+      [readonly]="user.dob"
+      (change)="calculateAge(form.dob)"
+      required
+    />
+
+    <label>Age</label>
+    <input type="text" [value]="calculatedAge || ''" readonly />
+
+    <label>Blood Group</label>
+    <select [(ngModel)]="form.bloodGroup" name="bloodGroup">
+      <option value="">Select</option>
+      <option>A+</option>
+      <option>A-</option>
+      <option>B+</option>
+      <option>B-</option>
+      <option>O+</option>
+      <option>O-</option>
+      <option>AB+</option>
+      <option>AB-</option>
+    </select>
+
+    <label>Physical State</label>
+    <select [(ngModel)]="form.physicalState" name="physicalState">
+      <option value="">Select</option>
+      <option>Fit</option>
+      <option>Normal</option>
+      <option>Under Treatment</option>
+    </select>
+
+    <label>Gym Member?</label>
+    <select [(ngModel)]="form.gymMember" name="gymMember">
+      <option value="">Select</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+    <label>Therapy Support Taken?</label>
+    <select [(ngModel)]="form.therapySupport" name="therapySupport">
+      <option value="">Select</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+    <button class="save-btn">Update Profile</button>
+  </form>
+</div>
+
+<app-modal [isOpen]="isOpen" [title]="title" [message]="message" (close)="closeModal()">
+</app-modal>

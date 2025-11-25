@@ -1,0 +1,81 @@
+<div class="employees-container">
+  <div class="header-row">
+    <h2 class="title">Employees</h2>
+
+    <button class="back-btn" (click)="goBack()">← Back</button>
+  </div>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Search by email..."
+      [(ngModel)]="searchEmail"
+      (input)="search()"
+    />
+  </div>
+
+  <table class="employee-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>DOB</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (emp of filtered; track emp._id) {
+      <tr>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.department }}</td>
+        <td>{{ emp.dob ? (emp.dob | date : 'mediumDate') : '-' }}</td>
+
+        <td>
+          <button class="btn edit" (click)="openEdit(emp)">Edit</button>
+          <button class="btn delete" (click)="openDeleteModal(emp)">Delete</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+@if (editData) {
+<div class="edit-modal">
+  <div class="modal-box">
+    <h3>Edit Employee</h3>
+
+    <label>Name</label>
+    <input type="text" [(ngModel)]="editData.name" />
+
+    <label>Email</label>
+    <input type="email" [(ngModel)]="editData.email" />
+
+    <label>Password</label>
+    <input type="text" [(ngModel)]="editData.password" />
+
+    <label>Department</label>
+    <input type="text" [(ngModel)]="editData.department" />
+
+    <label>DOB</label>
+    <input type="date" [(ngModel)]="editData.dob" />
+
+    <div class="modal-actions">
+      <button class="btn" (click)="closeEdit()">Cancel</button>
+      <button class="btn save" (click)="saveEdit()">Save</button>
+    </div>
+  </div>
+</div>
+}
+
+<app-confirmation-modal
+  [isOpen]="deleteModalOpen"
+  title="Delete Employee?"
+  [message]="'Are you sure you want to delete ' + selectedEmployee?.name + '?'"
+  (confirm)="confirmDelete()"
+  (cancel)="deleteModalOpen = false"
+>
+</app-confirmation-modal>

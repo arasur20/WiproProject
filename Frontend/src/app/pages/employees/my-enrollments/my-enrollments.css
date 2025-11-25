@@ -1,0 +1,87 @@
+.enrollments-container {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #17252a;
+}
+
+.empty {
+  color: #777;
+  margin-top: 20px;
+}
+
+.enrollment-list {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.enrollment-card {
+  width: 300px;
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.enrollment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.info-row {
+  margin: 8px 0;
+}
+
+.view-btn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  background: #2b7a78;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.view-btn:hover {
+  background: #3aafa9;
+}
+
+.withdraw-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #e74c3c;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.withdraw-btn:hover {
+  background: #c0392b;
+}
+
+.completed-btn{
+width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+
+  background: #d5f5e3;
+  color: #1e8449;
+  font-weight: 600;
+
+  cursor: default;
+  opacity: 1;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}

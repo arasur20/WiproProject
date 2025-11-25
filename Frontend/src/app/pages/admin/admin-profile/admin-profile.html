@@ -1,0 +1,22 @@
+<div class="profile-container">
+  <h2 class="title">My Profile</h2>
+
+  <div class="form-box">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="form.name" />
+
+    <label>Email</label>
+    <input type="email" [(ngModel)]="form.email" />
+
+    <label>Password</label>
+    <input type="password" [(ngModel)]="form.password" placeholder="Enter new password" />
+
+    <label>Department</label>
+    <input type="text" [(ngModel)]="form.department" />
+
+    <button class="save-btn" (click)="save()">Save Changes</button>
+  </div>
+</div>
+
+<app-modal [isOpen]="isOpen" [title]="title" [message]="message" (close)="closeModal()">
+</app-modal>

@@ -1,0 +1,81 @@
+.profile-container {
+  width: 420px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px 30px 35px;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.profile-container h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #17252a;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  color: #2b7a78;
+  font-weight: 600;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #cfd9d9;
+  border-radius: 8px;
+  background: #f9fdfd;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus,
+select:focus {
+  border-color: #2b7a78;
+  box-shadow: 0 0 4px rgba(43, 122, 120, 0.4);
+}
+
+input[readonly] {
+  background: #eef3f3;
+  cursor: not-allowed;
+}
+
+.save-btn {
+  margin-top: 25px;
+  padding: 12px;
+  background: #2b7a78;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+.save-btn:hover {
+  background: #3aafa9;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .profile-container {
+    width: 90%;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,18 @@
+<div class="certificate-container">
+  <h2 class="title">My Certificates</h2>
+
+  @if (certificates.length === 0) {
+  <p class="empty">You have not completed any programs yet.</p>
+  } @for (cert of certificates; track cert._id) {
+  <div class="certificate-card">
+    <div class="badge">
+      <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" />
+    </div>
+
+    <h3>{{ cert.programId.title }}</h3>
+    <p>Completed on: {{ cert.updatedAt | date : 'mediumDate' }}</p>
+
+    <button class="download-btn">Download Certificate</button>
+  </div>
+  }
+</div>

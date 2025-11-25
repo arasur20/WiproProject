@@ -1,0 +1,47 @@
+<div class="events-container">
+  <h2 class="title">Upcoming Wellness Events & Webinars</h2>
+
+  <div class="events-list">
+    @for (event of events; track event._id) {
+
+    <div
+      class="event-card"
+      [class.enrolled]="event.isRegistered"
+      [class.completed]="event.isCompletedForUser"
+      [class.expired]="event.isExpired && !event.isRegistered"
+      [class.disabled]="event.isExpired"
+      (click)="openEvent(event._id, event)"
+    >
+      <h3>{{ event.title }}</h3>
+      <p>{{ event.description }}</p>
+
+      <div class="info-row">
+        <span><strong>Date:</strong> {{ event.date | date : 'mediumDate' }}</span>
+      </div>
+
+      <div class="info-row"><strong>Mode:</strong> {{ event.mode }}</div>
+
+      <!-- Completed (GREEN) -->
+      @if (event.isCompletedForUser) {
+      <div class="badge completed-badge">Completed ✓</div>
+      }
+
+      <!-- Expired (RED) -->
+      @if (event.isExpired && !event.isRegistered) {
+      <div class="badge expired-badge">Expired</div>
+      }
+
+      <!-- Enrolled -->
+      @if (event.isRegistered && !event.isCompletedForUser) {
+      <div class="enrolled-badge">Enrolled ✓</div>
+      }
+
+      <!-- View Button for available events -->
+      @if (!event.isRegistered && !event.isExpired) {
+      <button class="view-btn">View Details</button>
+      }
+    </div>
+
+    }
+  </div>
+</div>

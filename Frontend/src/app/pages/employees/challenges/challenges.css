@@ -1,0 +1,118 @@
+/* Container */
+.challenge-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* Title */
+.title {
+  text-align: center;
+  font-size: 28px;
+  color: #17252a;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+/* Empty Message Centered */
+.empty-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+
+.empty {
+  font-size: 18px;
+  color: #777;
+  text-align: center;
+  background: #f1fafa;
+  padding: 15px 25px;
+  border-radius: 10px;
+  border-left: 5px solid #2b7a78;
+}
+
+/* Challenge Cards */
+.challenge-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.challenge-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #2b7a78;
+}
+
+/* Description */
+.description {
+  margin: 10px 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Info Row */
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.info span {
+  color: #333;
+}
+
+/* Completed Badge */
+.completed-badge {
+  background: #3cc47c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Complete Button */
+.btn-row {
+  margin-top: 15px;
+  text-align: right;
+}
+
+
+
+.complete-btn:hover {
+  background: #1d5554;
+}
+
+.complete-btn {
+  background: #0066ff;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.complete-btn.done {
+  background: #4caf50;
+  cursor: default;
+}
+

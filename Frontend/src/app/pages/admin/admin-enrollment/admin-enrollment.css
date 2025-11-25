@@ -1,0 +1,187 @@
+.enroll-container {
+  padding: 20px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #17252a;
+  margin-bottom: 20px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  background: #2b7a78;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.back-btn:hover {
+  background: #225e5c;
+}
+
+/* TABLES */
+.program-table,
+.enroll-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.program-table th,
+.enroll-table th {
+  background: #2b7a78;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.program-table td,
+.enroll-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.program-table tr:hover,
+.enroll-table tr:hover {
+  background: #f1fdfc;
+}
+
+/* View Button */
+.btn.view-btn {
+  background: #3aafa9;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.btn.view-btn:hover {
+  background: #2b8b86;
+}
+
+/* Update Progress Button */
+.update-btn {
+  background: #3aafa9;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.update-btn:hover {
+  background: #2b8b86;
+}
+.update-btn[disabled] {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.empty {
+  color: #666;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  width: 350px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #17252a;
+}
+
+/* Input Styles */
+.modal-content input {
+  width: 90%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #cfd9d9;
+  border-radius: 8px;
+}
+
+.modal-content input:focus {
+  border-color: #2b7a78;
+  outline: none;
+  box-shadow: 0 0 5px rgba(43, 122, 120, 0.4);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancel {
+  background: #ccc;
+  color: black;
+}
+
+.cancel:hover {
+  background: #b5b5b5;
+}
+
+.save {
+  background: #2b7a78;
+  color: white;
+}
+
+.save:hover {
+  background: #225e5c;
+}
+
+
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Cancel Button */
+.btn.cancel {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.btn.cancel:hover {
+  background: #d0d0d0;
+}
+
+/* Save Button */
+.btn.save {
+  background: #2b7a78;
+  color: white;
+}
+
+.btn.save:hover {
+  background: #3aafa9;
+}

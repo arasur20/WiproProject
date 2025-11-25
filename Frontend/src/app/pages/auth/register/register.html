@@ -1,0 +1,86 @@
+<div class="register-container">
+  <div class="register-card">
+    <h2>Create Account</h2>
+
+    <form #registerForm="ngForm" (ngSubmit)="onRegister()">
+      <!-- Name -->
+      <div class="input-group">
+        <label>Name</label>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="form.name"
+          required
+          placeholder="Enter your full name"
+        />
+      </div>
+
+      <!-- Department -->
+      <div class="input-group">
+        <label>Department</label>
+        <input
+          type="text"
+          name="department"
+          [(ngModel)]="form.department"
+          required
+          placeholder="E.g., HR, Finance, IT"
+        />
+      </div>
+
+      <!-- Email -->
+      <div class="input-group">
+        <label>Email</label>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="form.email"
+          required
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <!-- Password -->
+      <div class="input-group">
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          placeholder="Create a strong password"
+        />
+      </div>
+      <div class="input-group">
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          [(ngModel)]="form.confirmPassword"
+          required
+          placeholder="Re-enter your password"
+        />
+      </div>
+
+      <!-- Admin Key (Optional for Admin Registration) -->
+      <div class="input-group">
+        <label>Access Key (Admin)</label>
+        <input
+          type="text"
+          name="adminKey"
+          [(ngModel)]="form.adminKey"
+          placeholder="Only for admins"
+        />
+      </div>
+
+      <button class="register-btn" type="submit" [disabled]="registerForm.invalid">Register</button>
+
+      <p class="login-text">
+        Already have an account?
+        <span routerLink="/login" class="login-link">Login</span>
+      </p>
+    </form>
+  </div>
+</div>
+<app-modal [isOpen]="isOpen" [title]="title" [message]="message" (close)="closeModal()">
+</app-modal>

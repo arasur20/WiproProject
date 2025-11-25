@@ -1,0 +1,123 @@
+.programs-container {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  color: #17252a;
+  font-weight: bold;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.program-list {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.program-card {
+  width: 300px;
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.program-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.program-card h3 {
+  color: #2b7a78;
+  margin-bottom: 10px;
+}
+
+.expired-card {
+  opacity: 0.6;
+  cursor: not-allowed !important;
+}
+
+.expired-card:hover {
+  transform: none;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.view-btn {
+  width: 100%;
+  padding: 10px;
+  background: #2b7a78;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background: #3aafa9;
+}
+
+.program-card.enrolled {
+  background: #eaffea;
+  border-left: 5px solid #28a745;
+}
+
+.enrolled-badge {
+  background: #28a745;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 10px;
+  width: fit-content;
+  display: inline-block;
+}
+
+
+.completed-badge,
+.completed {
+  background: #d4edda;
+  color: #155724;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.expired-badge,
+.expired {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+

@@ -1,0 +1,36 @@
+@if (event) {
+<div class="details-container">
+  <h2 class="title">{{ event.title }}</h2>
+  <p>{{ event.description }}</p>
+
+  <div class="info-box">
+    <p><strong>Date:</strong> {{ event.date | date : 'medium' }}</p>
+    <p><strong>Presenter:</strong> {{ event.presenter }}</p>
+
+    <p><strong>Mode:</strong> {{ event.mode }}</p>
+
+    @if (event.mode === 'online') {
+    <p>
+      <strong>Meeting Link:</strong> <a href="event.link">{{ event.meetingLink }}</a>
+    </p>
+    } @else {
+    <p><strong>Location:</strong> {{ event.location }}</p>
+    }
+  </div>
+  @if (!event.isRegistered) {
+  <button class="enroll-btn" (click)="register()">Register</button>
+  }
+
+  <!-- If already registered -->
+  @if (event.isRegistered) {
+  <button class="registered-btn" disabled>Registered</button>
+  }
+</div>
+} @else {
+<div class="no-event-container">
+  <p class="no-event-text">No event details available at the moment.</p>
+</div>
+}
+
+<app-modal [isOpen]="isOpen" [title]="title" [message]="message" (close)="closeModal()">
+</app-modal>

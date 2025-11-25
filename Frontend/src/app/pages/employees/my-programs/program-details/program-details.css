@@ -1,0 +1,91 @@
+.details-container {
+  padding: 40px 20px;
+  max-width: 700px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.title {
+  text-align: center;
+  color: #17252a;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.description {
+  text-align: center;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.info-box {
+  background: #f1fafa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.requirements {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.enroll-btn {
+  width: 100%;
+  padding: 12px;
+  background: #2b7a78;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.enroll-btn:hover {
+  background: #3aafa9;
+}
+
+
+.no-program-container {
+  text-align: center;
+  padding: 40px;
+  margin-top: 50px;
+  background: #f7f9fa;
+  border-radius: 12px;
+  color: #555;
+  font-size: 18px;
+  border: 1px solid #ddd;
+}
+
+.no-program-text {
+  margin: 0;
+  font-weight: 500;
+}
+
+.in-progress-btn,
+.completed-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+
+  background: #d5f5e3;
+  color: #1e8449;
+  font-weight: 600;
+
+  cursor: default;
+  opacity: 1;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Prevent hover effect */
+.in-progress-btn:hover {
+  background: #d5f5e3;
+  color: #1e8449;
+  transform: none;
+}

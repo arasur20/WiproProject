@@ -1,0 +1,34 @@
+<div class="challenge-container">
+  <h2 class="title">My Challenges</h2>
+
+  @if (challenges.length === 0) {
+  <div class="empty-wrapper">
+    <p class="empty">No challenges available right now.</p>
+  </div>
+  } @for (ch of challenges; track ch._id) {
+  <div class="challenge-card">
+    <div class="card-header">
+      <h3>{{ ch.title }}</h3>
+
+      @if (ch.isCompleted) {
+      <span class="completed-badge">✔</span>
+      }
+    </div>
+
+    <p class="description">{{ ch.description }}</p>
+
+    <div class="info">
+      <span><strong>Program:</strong> {{ ch.programId.title }}</span>
+      <span><strong>Difficulty:</strong> {{ ch.difficulty }}</span>
+    </div>
+
+    <div class="btn-row">
+      @if (!ch.isCompleted) {
+      <button class="complete-btn" (click)="markComplete(ch)">Mark as Completed</button>
+      } @if (ch.isCompleted) {
+      <button class="complete-btn done" disabled>Completed</button>
+      }
+    </div>
+  </div>
+  }
+</div>

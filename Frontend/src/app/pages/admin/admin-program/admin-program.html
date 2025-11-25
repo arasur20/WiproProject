@@ -1,0 +1,95 @@
+<div class="programs-container">
+  <div class="header-row">
+    <h2 class="title">Programs</h2>
+    <button class="add-btn" (click)="openAdd()">+ Add Program</button>
+  </div>
+
+  <!-- 🔍 SEARCH BAR -->
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Search programs..."
+      [(ngModel)]="searchText"
+      (input)="search()"
+    />
+  </div>
+
+  <table class="program-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Duration (Weeks)</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (p of filtered; track p._id) {
+      <tr>
+        <td>{{ p.title }}</td>
+        <td>{{ p.category }}</td>
+        <td>{{ p.durationWeeks }}</td>
+
+        <td>
+          <span
+            class="status-badge"
+            [class.completed]="isCompleted(p)"
+            [class.ongoing]="isOngoing(p)"
+            [class.upcoming]="isUpcoming(p)"
+          >
+            {{ isCompleted(p) ? 'Completed' : isUpcoming(p) ? 'Upcoming' : 'Ongoing' }}
+          </span>
+        </td>
+
+        <td>
+          <button class="btn edit" (click)="openEdit(p)">Edit</button>
+          <button class="btn delete" (click)="openDeleteModal(p)">Delete</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<!-- MODAL -->
+@if (modalOpen) {
+<div class="program-modal">
+  <div class="modal-box">
+    <h3>{{ isEdit ? 'Update Program' : 'Add Program' }}</h3>
+
+    <label>Title</label>
+    <input type="text" [(ngModel)]="form.title" />
+
+    <label>Description</label>
+    <textarea [(ngModel)]="form.description"></textarea>
+
+    <label>Category</label>
+    <input type="text" [(ngModel)]="form.category" />
+
+    <label>Duration (Weeks)</label>
+    <input type="number" [(ngModel)]="form.durationWeeks" />
+
+    <label>Start Date</label>
+    <input type="date" [(ngModel)]="form.startDate" />
+
+    <label>End Date</label>
+    <input type="date" [(ngModel)]="form.endDate" />
+
+    <div class="modal-actions">
+      <button class="btn" (click)="closeModal()">Cancel</button>
+      <button class="btn save" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>
+}
+
+<!-- CONFIRMATION -->
+<app-confirmation-modal
+  [isOpen]="deleteModalOpen"
+  title="Delete Program?"
+  [message]="'Are you sure you want to delete ' + selectedProgram?.title + '?'"
+  (confirm)="confirmDelete()"
+  (cancel)="deleteModalOpen = false"
+></app-confirmation-modal>

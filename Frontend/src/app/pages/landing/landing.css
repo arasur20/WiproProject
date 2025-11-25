@@ -1,0 +1,257 @@
+/* Main Container */
+.landing-container {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+/* Smooth transitions everywhere */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2b7a78;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 18px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+
+.nav-links a:visited {
+  color: #333;
+}
+
+.nav-links a:hover {
+  background: #def2f1;
+  color: #17252a;
+}
+
+/* Navbar Buttons */
+.nav-buttons .login-btn,
+.nav-buttons .register-btn {
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-btn {
+  background: white;
+  border: 2px solid #2b7a78;
+  color: #2b7a78;
+}
+
+.login-btn:hover {
+  background: #2b7a78;
+  color: white;
+}
+
+.register-btn {
+  background: #2b7a78;
+  color: white;
+  margin-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.register-btn:hover {
+  background: #3aafa9;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+  background: linear-gradient(135deg, #2b7a78, #3aafa9);
+  color: white;
+  animation: fadeInHero 1s ease-in-out;
+}
+
+@keyframes fadeInHero {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+  margin-top: 35px;
+}
+
+.cta-btn {
+  background: #def2f1;
+  color: #17252a;
+  padding: 14px 30px;
+  border-radius: 10px;
+  border: none;
+  margin-right: 12px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.cta-btn:hover {
+  background: #ffffff;
+  transform: translateY(-3px);
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 2px solid white;
+  padding: 14px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 17px;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 80px 20px;
+  flex-wrap: wrap;
+}
+
+/* Feature Cards */
+.feature-card {
+  background: white;
+  padding: 35px;
+  width: 300px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Footer */
+.footer {
+  background: #17252a;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+/* Hide hamburger by default (desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #2b7a78;
+  margin: 4px 0;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+
+  /* Show hamburger menu */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hide normal nav layout */
+  .nav-links,
+  .nav-buttons {
+    display: none;
+  }
+
+  /* Show when menuOpen = true */
+  .nav-links.active,
+  .nav-buttons.active {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    gap: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    animation: slideDown 0.3s ease;
+  }
+
+  /* Make nav vertical in mobile */
+  .nav-links a {
+    margin: 10px 0;
+    padding: 12px 0;
+    font-size: 18px;
+  }
+
+  .nav-buttons button {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 17px;
+  }
+
+  /* Navbar compact */
+  .navbar {
+    padding: 15px 20px;
+  }
+}
+
+/* Slide down animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

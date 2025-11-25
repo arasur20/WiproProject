@@ -1,0 +1,42 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Welcome Back</h2>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <!-- Email -->
+      <div class="input-group">
+        <label>Email</label>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="form.email"
+          required
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <!-- Password -->
+      <div class="input-group">
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          placeholder="Enter your password"
+        />
+      </div>
+
+      <button class="login-btn" type="submit" [disabled]="loginForm.invalid">Login</button>
+
+      <a routerLink="/forgot-password" class="forgot">Forgot Password?</a>
+
+      <p class="register-text">
+        Don’t have an account?
+        <span routerLink="/register" class="register-link">Register</span>
+      </p>
+    </form>
+  </div>
+</div>
+<app-modal [isOpen]="isOpen" [title]="title" [message]="message" (close)="closeModal()">
+</app-modal>

@@ -1,0 +1,46 @@
+.certificate-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 26px;
+  color: #17252a;
+  margin-bottom: 20px;
+}
+
+.empty {
+  font-size: 18px;
+  color: #888;
+  margin-top: 40px;
+}
+
+.certificate-card {
+  width: 320px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  position: relative;
+}
+
+.badge img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.download-btn {
+  margin-top: 15px;
+  padding: 8px 18px;
+  background: #2b7a78;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background: #1e5c5a;
+}

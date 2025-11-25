@@ -1,0 +1,56 @@
+<div class="landing-container">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Employee Wellness</div>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Nav Links -->
+    <div class="nav-links" [class.active]="menuOpen">
+      <a href="#hero">Home</a>
+      <a href="#programs">Programs</a>
+      <a>About</a>
+      <a>Contact</a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="nav-buttons" [class.active]="menuOpen">
+      <button routerLink="/login" class="login-btn">Login</button>
+      <button routerLink="/register" class="register-btn">Register</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <h1>Empowering Employee Wellness</h1>
+    <p>Your health is our priority. Join programs, track progress & earn rewards.</p>
+    <div class="hero-buttons">
+      <button routerLink="/register" class="cta-btn">Get Started</button>
+      <button routerLink="/login" class="secondary-btn">Login</button>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="programs">
+    <div class="feature-card">
+      <h3>Wellness Programs</h3>
+      <p>Choose from a variety of corporate wellness activities.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Track Progress</h3>
+      <p>Monitor your daily and weekly progress easily.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Earn Rewards</h3>
+      <p>Get rewarded for staying healthy and active!</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">© 2025 Employee Wellness | All Rights Reserved.</footer>
+</div>

@@ -1,0 +1,136 @@
+.challenge-container {
+  padding: 20px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #17252a;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-btn {
+  background: #2b7a78;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.challenge-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.challenge-table th {
+  background: #2b7a78;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.challenge-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.challenge-table tr:hover {
+  background: #f1fdfc;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit {
+  margin-right: 10px;
+  background: #3aafa9;
+  color: white;
+}
+
+.delete {
+  background: #d9534f;
+  color: white;
+}
+
+/* MODAL (Employee style) */
+.edit-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: white;
+  padding: 25px;
+  width: 420px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.modal-box h3 {
+  margin-bottom: 10px;
+  color: #17252a;
+}
+
+.modal-box label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+  color: #17252a;
+}
+
+.modal-box input,
+.modal-box select,
+.modal-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.modal-box textarea {
+  height: 80px;
+  resize: none;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.modal-actions .btn {
+  padding: 8px 16px;
+}
+
+.modal-actions .save {
+  margin-left: 10px;
+  background: #2b7a78;
+  color: white;
+}
+
+.modal-actions .save:hover {
+  background: #225e5c;
+}

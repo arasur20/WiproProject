@@ -1,0 +1,33 @@
+<div class="programs-container">
+  <h2 class="title">Available Wellness Programs</h2>
+  <p class="subtitle">Choose a program and start your wellness journey</p>
+
+  <div class="program-list">
+    @for (program of programs; track program._id) {
+    <div
+      class="program-card"
+      [class.enrolled]="program.isEnrolled"
+      [class.expired-card]="program.isExpired"
+      (click)="openProgram(program)"
+    >
+      <h3>{{ program.title }}</h3>
+      <p>{{ program.description }}</p>
+
+      <div class="info-row">
+        <span class="label">Duration:</span>
+        <span class="value">{{ program.durationWeeks }} weeks</span>
+      </div>
+
+      @if (program.isExpired) {
+      <div class="expired-badge">Expired</div>
+      }@else if (program.isEnrolled && program.isCompleted) {
+      <div class="completed-badge">Completed ✓</div>
+      } @else if (!program.isEnrolled) {
+      <button class="view-btn">View Details</button>
+      } @else {
+      <div class="enrolled-badge">Enrolled ✓</div>
+      }
+    </div>
+    }
+  </div>
+</div>

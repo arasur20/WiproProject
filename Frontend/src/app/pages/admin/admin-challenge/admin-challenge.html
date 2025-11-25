@@ -1,0 +1,81 @@
+<div class="challenge-container">
+  <div class="header-row">
+    <h2 class="title">Challenges</h2>
+    <button class="add-btn" (click)="openAdd()">+ Add Challenge</button>
+  </div>
+
+  @if (challenges.length === 0) {
+  <p class="empty">No challenges created yet.</p>
+  } @else {
+  <table class="challenge-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Program</th>
+        <th>Difficulty</th>
+        <th>Completed By</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (c of challenges; track c._id) {
+      <tr>
+        <td>{{ c.title }}</td>
+        <td>{{ c.programId?.title }}</td>
+        <td>{{ c.difficulty }}</td>
+        <td>{{ c.completedBy.length }}</td>
+
+        <td>
+          <button class="btn edit" (click)="openEdit(c)">Edit</button>
+          <button class="btn delete" (click)="openDeleteModal(c)">Delete</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  }
+</div>
+
+@if (modalOpen) {
+<div class="edit-modal">
+  <div class="modal-box">
+    <h3>{{ isEdit ? 'Edit Challenge' : 'Add Challenge' }}</h3>
+
+    <label>Title</label>
+    <input type="text" [(ngModel)]="form.title" />
+
+    <label>Description</label>
+    <textarea [(ngModel)]="form.description"></textarea>
+
+    <label>Program</label>
+    <select [(ngModel)]="form.programId">
+      <option value="">Select Program</option>
+      @for (p of programs; track p._id) {
+      <option [value]="p._id">{{ p.title }}</option>
+      }
+    </select>
+
+    <label>Difficulty</label>
+    <select [(ngModel)]="form.difficulty">
+      <option>Easy</option>
+      <option>Medium</option>
+      <option>Hard</option>
+    </select>
+
+    <div class="modal-actions">
+      <button class="btn" (click)="closeModal()">Cancel</button>
+      <button class="btn save" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>
+} @if (deleteModalOpen) {
+<app-modal
+  [isOpen]="deleteModalOpen"
+  title="Delete Challenge?"
+  [message]="'Are you sure you want to delete ' + selectedChallenge?.title + '?'"
+  (close)="deleteModalOpen = false"
+  (confirm)="confirmDelete()"
+>
+</app-modal>
+}

@@ -1,0 +1,44 @@
+@if (program) {
+<div class="details-container">
+  <h2 class="title">{{ program.title }}</h2>
+  <p class="description">{{ program.description }}</p>
+
+  <div class="info-box">
+    <p><strong>Duration:</strong> {{ program.durationWeeks * 7 }} days</p>
+    <p><strong>Category:</strong> {{ program.category }}</p>
+    <p><strong>Start Date:</strong> {{ program.startDate | date }}</p>
+    <p><strong>End Date:</strong> {{ program.endDate | date }}</p>
+
+    @if (program.requirements?.length > 0) {
+    <p><strong>Requirements:</strong></p>
+    <ul class="requirements">
+      @for (req of program.requirements; track $index) {
+      <li>{{ req }}</li>
+      }
+    </ul>
+    }
+  </div>
+
+  <!-- 1️⃣ COMPLETED -->
+  @if (program.isCompleted) {
+  <button class="completed-btn" disabled>Completed ✓</button>
+  }
+
+  <!-- 2️⃣ ENROLLED but NOT completed -->
+  @else if (program.isEnrolled) {
+  <button class="in-progress-btn" disabled>In Progress</button>
+  }
+
+  <!-- 3️⃣ NOT ENROLLED -->
+  @else {
+  <button class="enroll-btn" (click)="enroll()">Enroll Now</button>
+  }
+</div>
+} @else {
+<div class="no-program-container">
+  <p class="no-program-text">No program details available at the moment.</p>
+</div>
+}
+
+<app-modal [isOpen]="isOpen" [title]="title" [message]="message" (close)="closeModal()">
+</app-modal>

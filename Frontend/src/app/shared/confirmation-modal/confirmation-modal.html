@@ -1,0 +1,11 @@
+<div class="modal-backdrop" *ngIf="isOpen">
+  <div class="modal-box">
+    <h3>{{ title }}</h3>
+    <p>{{ message }}</p>
+
+    <div class="buttons">
+      <button class="cancel-btn" (click)="onCancel()">Cancel</button>
+      <button class="ok-btn" (click)="onConfirm()">OK</button>
+    </div>
+  </div>
+</div>

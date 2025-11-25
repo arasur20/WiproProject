@@ -1,0 +1,91 @@
+<div class="enroll-container">
+  @if (!showList) {
+  <h2 class="title">Programs Enrollment Overview</h2>
+
+  <table class="program-table">
+    <thead>
+      <tr>
+        <th>Program</th>
+        <th>Category</th>
+        <th>Duration</th>
+        <th>View</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (p of programs; track p._id) {
+      <tr>
+        <td>{{ p.title }}</td>
+        <td>{{ p.category }}</td>
+        <td>{{ p.durationWeeks }} Weeks</td>
+        <td>
+          <button class="btn view-btn" (click)="openProgram(p)">View Enrollments</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  } @if (showList) {
+  <div class="header-row">
+    <button class="back-btn" (click)="goBack()">← Back</button>
+    <h2 class="title">{{ selectedProgram.title }}</h2>
+    <div></div>
+  </div>
+
+  @if (enrolledUsers.length === 0) {
+  <p class="empty">No employees enrolled in this program.</p>
+  } @else {
+
+  <table class="enroll-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Enrolled On</th>
+        <th>Progress</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (e of enrolledUsers; track e._id) {
+      <tr>
+        <td>{{ e.user.name }}</td>
+        <td>{{ e.user.email }}</td>
+        <td>{{ e.user.department }}</td>
+        <td>{{ e.createdAt | date : 'mediumDate' }}</td>
+        <td>{{ e.progressPercentage }}%</td>
+
+        <td>
+          <button
+            class="btn update-btn"
+            (click)="openProgressModal(e)"
+            [disabled]="e.progressPercentage === 100"
+          >
+            {{ e.progressPercentage === 100 ? 'Completed' : 'Update' }}
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+  } }
+</div>
+
+@if (progressModalOpen) {
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h3>Update Progress</h3>
+
+    <label>Progress (%)</label>
+    <input type="number" [(ngModel)]="progressValue" min="0" max="100" />
+
+    <div class="modal-actions">
+      <button class="btn cancel" (click)="closeProgressModal()">Cancel</button>
+      <button class="btn save" (click)="updateProgress()">Save</button>
+    </div>
+  </div>
+</div>
+}

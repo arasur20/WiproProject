@@ -1,0 +1,95 @@
+.events-container {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  color: #17252a;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.events-list {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.event-card {
+  width: 300px;
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Disable expired click */
+.event-card.disabled {
+  opacity: 0.6;
+  cursor: not-allowed !important;
+}
+
+.event-card.disabled:hover {
+  transform: none;
+}
+
+.info-row {
+  margin: 8px 0;
+}
+
+/* Enrolled card background */
+.event-card.enrolled {
+  background: #eaffea;
+  border-left: 5px solid #28a745;
+}
+
+/* BADGES */
+.enrolled-badge,
+.completed-badge,
+.expired-badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.enrolled-badge {
+  background: #28a745;
+  color: white;
+}
+
+.completed-badge {
+  background: #d4edda;
+  color: #155724;
+}
+
+.expired-badge {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* View Details button */
+.view-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background: #2b7a78;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background: #3aafa9;
+}

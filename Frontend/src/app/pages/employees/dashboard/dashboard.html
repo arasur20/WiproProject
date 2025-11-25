@@ -1,0 +1,83 @@
+<div class="dashboard-wrapper">
+  <!-- Top Navbar -->
+  <nav class="dashboard-nav">
+    <div class="brand">Employee Wellness</div>
+
+    <div class="nav-actions">
+      <button (click)="help()" class="help-btn">Help</button>
+
+      <!-- POINTS BADGE -->
+      <div class="points-badge">🏆 {{ user?.rewardPoints || 0 }}</div>
+
+      <!-- Profile dropdown -->
+      <div class="profile-menu" (click)="toggleMenu()">
+        <span class="profile-name">{{ user?.name }}</span>
+        <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" class="profile-icon" />
+
+        <div class="dropdown" [class.open]="menuOpen">
+          <p routerLink="/employee/my-profile">My Profile</p>
+          <p routerLink="/employee/my-certificate">My Certificates</p>
+          <p (click)="logout()">Logout</p>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="dashboard-container">
+    <h2 class="title">Welcome, {{ user?.name }}</h2>
+    <p class="subtitle">Your wellness journey starts here</p>
+
+    <div class="cards">
+      <!-- Card 1: Programs -->
+      <div class="card" routerLink="/employee/program">
+        <div class="icon-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/4333/4333609.png" />
+        </div>
+        <div class="content">
+          <h3>Available Programs</h3>
+          <p>Explore wellness programs and enroll easily.</p>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+
+      <!-- Card 2: Enrollments -->
+      <div class="card" routerLink="/employee/my-enrollment">
+        <div class="icon-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" />
+        </div>
+        <div class="content">
+          <h3>My Enrollments</h3>
+          <p>Track progress and monitor achievements.</p>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+
+      <!-- Card 3: Rewards -->
+      <div class="card" routerLink="/employee/challenges">
+        <div class="icon-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/1785/1785903.png" />
+        </div>
+        <div class="content">
+          <h3>My Challenges</h3>
+          <p>Complete tasks and improve your wellness.</p>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+
+      <!-- Card 4: Webinars -->
+      <div class="card" routerLink="/employee/events">
+        <div class="icon-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/2950/2950221.png" />
+        </div>
+        <div class="content">
+          <h3>Upcoming Webinars</h3>
+          <p>Join online sessions and learn from experts.</p>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal [isOpen]="isOpen" [title]="title" [message]="message" (close)="closeModal()">
+</app-modal>
