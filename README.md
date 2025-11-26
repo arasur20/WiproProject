@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/arasur20/WiproProject/frontend/src/assets/wellness.png" alt="Logo" width="100px" />
+  <img src="https://raw.githubusercontent.com/arasur20/WiproProject/main/Frontend/public/assets/wellness.png" alt="Logo" width="100px" />
 </p>
 
 <h2 align="center">Employee Wellness Management</h2>
