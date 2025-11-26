@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/arasur20/WiproProject/frontend/public/assets/admin.png" alt="Preview 3" width="600" />
+  <img src="https://raw.githubusercontent.com/arasur20/WiproProject/44e63172f2c290cae0c103ffab04d239c96c9c6c/Frontend/public/assets/landing.png" alt="Preview 3" width="600" />
 </p>
 
 <p align="center">
